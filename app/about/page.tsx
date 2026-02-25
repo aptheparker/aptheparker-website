@@ -34,7 +34,7 @@ export default function About() {
                   <span className="text-purple-400 font-semibold">
                     Location:
                   </span>{' '}
-                  Seoul, Korea
+                  Seoul, South Korea
                 </p>
                 <p>
                   <span className="text-purple-400 font-semibold">
