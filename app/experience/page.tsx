@@ -10,8 +10,8 @@ export default function Experience() {
           Experience
         </h1>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 animate-fadeIn">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 animate-fadeIn h-full">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-2xl">
                 💼
@@ -37,7 +37,7 @@ export default function Experience() {
           </div>
 
           <div
-            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 animate-fadeIn"
+            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 animate-fadeIn h-full"
             style={{ animationDelay: '0.1s' }}
           >
             <div className="flex items-center gap-3 mb-6">
@@ -72,7 +72,7 @@ export default function Experience() {
           </div>
 
           <div
-            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/30 animate-fadeIn"
+            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/30 animate-fadeIn h-full"
             style={{ animationDelay: '0.2s' }}
           >
             <div className="flex items-center gap-3 mb-6">
@@ -93,6 +93,37 @@ export default function Experience() {
                   Columbia Business School - Finalist
                 </p>
                 <p className="text-sm text-gray-400">2020.02 ~ 2020.03</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/30 animate-fadeIn h-full"
+            style={{ animationDelay: '0.3s' }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center text-2xl">
+                🎖️
+              </div>
+              <h2 className="text-2xl font-bold text-white">Certifications</h2>
+            </div>
+            <div className="space-y-6">
+              <div className="border-l-2 border-yellow-400 pl-4">
+                <h3 className="text-lg font-semibold text-yellow-400">
+                  AWS Certified Cloud Practitioner
+                </h3>
+              </div>
+              <div className="border-l-2 border-yellow-400/70 pl-4">
+                <h3 className="text-lg font-semibold text-yellow-400/90">
+                  HSK Level 6
+                </h3>
+                <p className="text-gray-300">Score: 272/300</p>
+              </div>
+              <div className="border-l-2 border-yellow-400/50 pl-4">
+                <h3 className="text-lg font-semibold text-yellow-400/80">
+                  OPIc English
+                </h3>
+                <p className="text-gray-300">Level: AL</p>
               </div>
             </div>
           </div>

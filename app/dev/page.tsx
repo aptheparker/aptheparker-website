@@ -73,31 +73,6 @@ export default function Dev() {
             </div>
           ))}
         </div>
-
-        <div
-          className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-md rounded-2xl p-8 border border-white/20 animate-fadeIn"
-          style={{ animationDelay: '0.6s' }}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center text-3xl">
-              🎖️
-            </div>
-            <h2 className="text-3xl font-bold text-white">Certifications</h2>
-          </div>
-          <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-            <p className="text-xl text-gray-300">
-              ✅ AWS Certified Cloud Practitioner
-            </p>
-            <p className="text-xl text-gray-300">
-              ✅ HSK Level 6 (Chinese Language Certificate) - Score: 284/300
-              (Highest Level)
-            </p>
-            <p className="text-xl text-gray-300">
-              ✅ OPIc English (Oral Proficiency Interview - Computer) - Level:
-              AL (Highest Level)
-            </p>
-          </div>
-        </div>
       </main>
     </div>
   );
