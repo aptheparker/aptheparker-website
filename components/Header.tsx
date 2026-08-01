@@ -35,20 +35,30 @@ export default function Header({
   }, []);
 
   useEffect(() => {
-    if (!langOpen) return;
+    if (!langOpen && !open) return;
     const onDown = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
       }
     };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setLangOpen(false);
+        setOpen(false);
+      }
+    };
     document.addEventListener("mousedown", onDown);
-    return () => document.removeEventListener("mousedown", onDown);
-  }, [langOpen]);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [langOpen, open]);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-white/75 backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_1px_0_0_#f2f4f6,0_12px_32px_-12px_rgba(25,31,40,0.1)]" : ""
+      className={`fixed inset-x-0 top-0 z-50 bg-white/55 backdrop-blur-2xl backdrop-saturate-150 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_0_0_rgba(255,255,255,0.65),0_12px_32px_-12px_rgba(25,31,40,0.12)]" : ""
       }`}
     >
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
@@ -83,7 +93,7 @@ export default function Header({
               <GlobeIcon />
               {localeNames[locale]}
               <svg
-                className={`h-3.5 w-3.5 text-grey-400 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+                className={`h-3.5 w-3.5 text-grey-400 transition-transform duration-300 ${langOpen ? "rotate-180" : ""}`}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -94,88 +104,30 @@ export default function Header({
               </svg>
             </button>
 
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-2 w-40 rounded-2xl border border-grey-100 bg-white p-1.5 shadow-lift">
-                {locales.map((loc) => (
-                  <Link
-                    key={loc}
-                    href={`/${loc}`}
-                    onClick={() => setLangOpen(false)}
-                    className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-[14px] font-semibold transition-colors ${
-                      loc === locale
-                        ? "bg-grey-50 text-toss-blue"
-                        : "text-grey-700 hover:bg-grey-50 hover:text-grey-900"
-                    }`}
-                  >
-                    {localeNames[loc]}
-                    {loc === locale && (
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <a
-            href="#contact"
-            className="ml-2 rounded-full bg-toss-blue px-5 py-2.5 text-[15px] font-semibold text-white shadow-[0_6px_16px_-6px_rgba(49,130,246,0.55)] transition-all hover:bg-toss-blue-strong hover:shadow-[0_8px_20px_-6px_rgba(49,130,246,0.6)] active:scale-[0.97]"
-          >
-            {nav.contact}
-          </a>
-        </nav>
-
-        {/* Mobile */}
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-grey-700 transition-colors hover:bg-grey-100 md:hidden"
-        >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {open && (
-        <nav className="border-t border-grey-100 bg-white px-6 pt-2 pb-6 md:hidden">
-          {nav.links.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="block rounded-xl px-3 py-3 text-base font-medium text-grey-800 transition-colors hover:bg-grey-50"
+            <div
+              inert={!langOpen}
+              className={`pop-panel absolute top-full right-0 mt-2 w-40 rounded-2xl border border-white/70 bg-white/80 p-1.5 shadow-lift backdrop-blur-2xl ${
+                langOpen ? "open" : ""
+              }`}
             >
-              {label}
-            </a>
-          ))}
-
-          <div className="mt-4 border-t border-grey-100 pt-4">
-            <p className="flex items-center gap-2 px-3 text-[13px] font-semibold text-grey-500">
-              <GlobeIcon />
-              Language
-            </p>
-            <div className="mt-3 flex gap-2 px-3">
-              {locales.map((loc) => (
+              {locales.map((loc, i) => (
                 <Link
                   key={loc}
                   href={`/${loc}`}
-                  onClick={() => setOpen(false)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                  onClick={() => setLangOpen(false)}
+                  style={{ transitionDelay: langOpen ? `${i * 35 + 50}ms` : "0ms" }}
+                  className={`menu-item flex items-center justify-between rounded-xl px-3.5 py-2.5 text-[14px] font-semibold ${
                     loc === locale
-                      ? "bg-grey-900 text-white"
-                      : "bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-grey-900"
+                      ? "bg-white/70 text-toss-blue"
+                      : "text-grey-700 hover:bg-white/70 hover:text-grey-900"
                   }`}
                 >
                   {localeNames[loc]}
+                  {loc === locale && (
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
                 </Link>
               ))}
             </div>
@@ -183,13 +135,89 @@ export default function Header({
 
           <a
             href="#contact"
-            onClick={() => setOpen(false)}
-            className="mt-5 block rounded-full bg-toss-blue px-5 py-3 text-center text-base font-semibold text-white shadow-[0_6px_16px_-6px_rgba(49,130,246,0.55)] transition-colors hover:bg-toss-blue-strong active:scale-[0.98]"
+            className="ml-2 rounded-full bg-toss-blue px-5 py-2.5 text-[15px] font-semibold text-white shadow-[0_6px_16px_-6px_rgba(49,130,246,0.55)] transition-all hover:-translate-y-0.5 hover:bg-toss-blue-strong hover:shadow-[0_10px_24px_-6px_rgba(49,130,246,0.6)] active:scale-[0.97]"
           >
             {nav.contact}
           </a>
         </nav>
-      )}
+
+        {/* Mobile hamburger — morphs into X */}
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          className="relative flex h-10 w-10 items-center justify-center rounded-full text-grey-700 transition-colors hover:bg-grey-100 md:hidden"
+        >
+          <span
+            className={`ham-bar ${
+              open ? "top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45" : "top-[13px] -translate-x-1/2"
+            }`}
+          />
+          <span
+            className={`ham-bar top-1/2 -translate-x-1/2 -translate-y-1/2 ${open ? "scale-x-0 opacity-0" : ""}`}
+          />
+          <span
+            className={`ham-bar ${
+              open ? "top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45" : "top-[25px] -translate-x-1/2"
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile menu — animated collapse with staggered items */}
+      <div className={`collapse-grid md:hidden ${open ? "open" : ""}`}>
+        <div className="collapse-inner" inert={!open}>
+          <nav className="border-t border-white/60 bg-white/85 px-6 pt-2 pb-6 backdrop-blur-2xl">
+            {nav.links.map(({ href, label }, i) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${i * 40 + 80}ms` : "0ms" }}
+                className="menu-item block rounded-xl px-3 py-3 text-base font-medium text-grey-800 hover:bg-white/70"
+              >
+                {label}
+              </a>
+            ))}
+
+            <div
+              className="menu-item mt-4 border-t border-white/60 pt-4"
+              style={{ transitionDelay: open ? `${nav.links.length * 40 + 100}ms` : "0ms" }}
+            >
+              <p className="flex items-center gap-2 px-3 text-[13px] font-semibold text-grey-500">
+                <GlobeIcon />
+                Language
+              </p>
+              <div className="mt-3 flex gap-2 px-3">
+                {locales.map((loc) => (
+                  <Link
+                    key={loc}
+                    href={`/${loc}`}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-all active:scale-95 ${
+                      loc === locale
+                        ? "bg-grey-900 text-white"
+                        : "chip text-grey-600 hover:text-grey-900"
+                    }`}
+                  >
+                    {localeNames[loc]}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              style={{ transitionDelay: open ? `${nav.links.length * 40 + 160}ms` : "0ms" }}
+              className="menu-item mt-5 block rounded-full bg-toss-blue px-5 py-3 text-center text-base font-semibold text-white shadow-[0_6px_16px_-6px_rgba(49,130,246,0.55)] hover:bg-toss-blue-strong active:scale-[0.98]"
+            >
+              {nav.contact}
+            </a>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

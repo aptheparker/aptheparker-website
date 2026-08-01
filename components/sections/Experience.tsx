@@ -26,7 +26,7 @@ export default function Experience({ c }: { c: SiteContent }) {
                       className={`flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold ${
                         exp.current
                           ? "bg-gradient-to-b from-[#4a94ff] to-[#2e7cf0] text-white shadow-[0_6px_16px_-6px_rgba(49,130,246,0.6)]"
-                          : "bg-grey-100 text-grey-600"
+                          : "border border-white/70 bg-white/60 text-grey-600"
                       }`}
                     >
                       {exp.company.charAt(0)}
@@ -42,7 +42,9 @@ export default function Experience({ c }: { c: SiteContent }) {
                   </div>
                   <span
                     className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
-                      exp.current ? "bg-toss-blue-soft text-toss-blue" : "bg-grey-100 text-grey-600"
+                      exp.current
+                        ? "border border-toss-blue/15 bg-toss-blue/10 text-toss-blue"
+                        : "chip text-grey-600"
                     }`}
                   >
                     {exp.period}
@@ -72,7 +74,7 @@ export default function Experience({ c }: { c: SiteContent }) {
                   {exp.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-grey-100 px-3.5 py-1.5 text-[13px] font-medium text-grey-700"
+                      className="chip px-3.5 py-1.5 text-[13px] font-medium text-grey-700"
                     >
                       {tag}
                     </span>

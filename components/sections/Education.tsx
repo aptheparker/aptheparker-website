@@ -6,7 +6,7 @@ export default function Education({ c }: { c: SiteContent }) {
   const { education } = c;
 
   return (
-    <section id="education" className="scroll-mt-20 bg-grey-50 py-28 md:py-36">
+    <section id="education" className="scroll-mt-20 py-28 md:py-36">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading

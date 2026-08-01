@@ -25,7 +25,7 @@ export default function Contact({ c }: { c: SiteContent }) {
     <section id="contact" className="scroll-mt-20 py-28 md:py-36">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[36px] bg-[linear-gradient(180deg,#161d29_0%,#191f28_100%)] px-8 py-16 text-center ring-1 ring-white/10 md:px-16 md:py-24">
+          <div className="relative overflow-hidden rounded-[36px] bg-[linear-gradient(180deg,rgba(22,29,41,0.9)_0%,rgba(25,31,40,0.94)_100%)] px-8 py-16 text-center ring-1 ring-white/15 backdrop-blur-2xl md:px-16 md:py-24">
             <div
               aria-hidden
               className="pointer-events-none absolute -top-32 left-1/2 h-[340px] w-[620px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(49,130,246,0.3),transparent)] blur-2xl"
@@ -34,6 +34,7 @@ export default function Contact({ c }: { c: SiteContent }) {
               aria-hidden
               className="pointer-events-none absolute -bottom-40 -left-24 h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.16),transparent)] blur-2xl"
             />
+            <div aria-hidden className="border-beam" />
 
             <div className="relative">
               <p className="text-sm font-bold text-toss-blue md:text-base">{contact.eyebrow}</p>
@@ -47,7 +48,7 @@ export default function Contact({ c }: { c: SiteContent }) {
               <div className="mt-10 flex flex-col items-center gap-4">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="rounded-full bg-toss-blue px-8 py-4 text-base font-semibold text-white shadow-[0_10px_28px_-8px_rgba(49,130,246,0.7)] transition-all hover:bg-toss-blue-strong hover:shadow-[0_12px_32px_-8px_rgba(49,130,246,0.8)] active:scale-[0.98]"
+                  className="rounded-full bg-toss-blue px-8 py-4 text-base font-semibold text-white shadow-[0_10px_28px_-8px_rgba(49,130,246,0.7)] transition-all hover:-translate-y-0.5 hover:bg-toss-blue-strong hover:shadow-[0_14px_36px_-8px_rgba(49,130,246,0.8)] active:scale-[0.98]"
                 >
                   {profile.email}
                 </a>
@@ -60,7 +61,7 @@ export default function Contact({ c }: { c: SiteContent }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-grey-300 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
+                      className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-grey-300 transition-all hover:scale-110 hover:border-white/30 hover:bg-white/10 hover:text-white active:scale-95"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                         {icon}

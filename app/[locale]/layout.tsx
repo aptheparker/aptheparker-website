@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { locales, isLocale } from "@/lib/i18n";
 import { getContent } from "@/lib/content";
+import AmbientBackground from "@/components/AmbientBackground";
+import PointerGlow from "@/components/PointerGlow";
 import "../globals.css";
 
 export const dynamicParams = false;
@@ -52,7 +54,11 @@ export default async function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <AmbientBackground />
+        <PointerGlow />
+        {children}
+      </body>
     </html>
   );
 }

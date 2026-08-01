@@ -30,7 +30,7 @@ export default function Skills({ c }: { c: SiteContent }) {
                   {items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full bg-grey-100 px-3.5 py-2 text-sm font-medium text-grey-700"
+                      className="chip px-3.5 py-2 text-sm font-medium text-grey-700"
                     >
                       {item}
                     </span>

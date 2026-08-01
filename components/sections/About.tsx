@@ -6,7 +6,7 @@ export default function About({ c }: { c: SiteContent }) {
   const { about } = c;
 
   return (
-    <section id="about" className="scroll-mt-20 bg-grey-50 py-28 md:py-36">
+    <section id="about" className="scroll-mt-20 py-28 md:py-36">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading
@@ -36,7 +36,7 @@ export default function About({ c }: { c: SiteContent }) {
             {about.interests.map(({ icon, label }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-2 rounded-full border border-grey-200/80 bg-white px-4 py-2 text-sm font-medium text-grey-700 shadow-card"
+                className="chip gap-2 px-4 py-2 text-sm font-medium text-grey-700"
               >
                 <span aria-hidden>{icon}</span>
                 {label}

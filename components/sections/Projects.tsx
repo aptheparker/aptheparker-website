@@ -6,7 +6,7 @@ export default function Projects({ c }: { c: SiteContent }) {
   const { projects } = c;
 
   return (
-    <section id="projects" className="scroll-mt-20 bg-grey-50 py-28 md:py-36">
+    <section id="projects" className="scroll-mt-20 py-28 md:py-36">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading
@@ -48,7 +48,7 @@ export default function Projects({ c }: { c: SiteContent }) {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-grey-100 px-3 py-1.5 text-[13px] font-medium text-grey-700"
+                      className="chip px-3 py-1.5 text-[13px] font-medium text-grey-700"
                     >
                       {tag}
                     </span>

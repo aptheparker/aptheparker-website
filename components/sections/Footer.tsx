@@ -2,7 +2,7 @@ import { profile, type SiteContent } from "@/lib/content";
 
 export default function Footer({ c }: { c: SiteContent }) {
   return (
-    <footer className="border-t border-grey-100 py-10">
+    <footer className="border-t border-white/60 py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
         <p className="text-sm font-medium text-grey-500">{c.footer.rights}</p>
         <div className="flex items-center gap-6">
