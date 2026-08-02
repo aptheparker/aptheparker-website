@@ -253,6 +253,21 @@
   animation: rise 1s var(--ease-out-expo) both;
 }
 
+/* Gentle vertical float (hero photo badges) */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float-y 5.5s ease-in-out infinite;
+}
+
 /* Ambient background blobs — breathing drift */
 @keyframes drift {
   0%,
@@ -313,6 +328,7 @@
   .reveal,
   .animate-rise,
   .animate-drift,
+  .animate-float,
   .border-beam {
     opacity: 1;
     transform: none;

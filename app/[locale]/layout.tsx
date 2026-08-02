@@ -31,6 +31,7 @@ export async function generateMetadata({
       title: c.meta.title,
       description: c.meta.description,
       type: "website",
+      images: [{ url: "/profile.png", width: 413, height: 531 }],
     },
   };
 }
