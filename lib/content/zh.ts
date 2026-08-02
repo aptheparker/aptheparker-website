@@ -17,7 +17,6 @@ export const zh: SiteContent = {
     contact: "联系我",
   },
   hero: {
-    status: "正在寻找新机会",
     headlineBefore: "把客户的挑战\n转化为",
     headlineAccent: "可扩展的解决方案。",
     headlineAfter: "",
@@ -27,7 +26,6 @@ export const zh: SiteContent = {
     stats: [
       { value: "3", label: "门母语级语言" },
       { value: "2年+", label: "后端实战经验" },
-      { value: "10+", label: "企业客户" },
       { value: "4.05", label: "GPA / 4.5（成均馆大学）" },
     ],
   },

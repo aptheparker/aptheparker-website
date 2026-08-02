@@ -17,7 +17,6 @@ export const en: SiteContent = {
     contact: "Contact",
   },
   hero: {
-    status: "Open to new opportunities",
     headlineBefore: "Turning customer challenges\ninto ",
     headlineAccent: "scalable solutions.",
     headlineAfter: "",
@@ -27,7 +26,6 @@ export const en: SiteContent = {
     stats: [
       { value: "3", label: "Native languages" },
       { value: "2+ yrs", label: "Production backend" },
-      { value: "10+", label: "Enterprise clients" },
       { value: "4.05", label: "GPA / 4.5 at SKKU" },
     ],
   },

@@ -25,16 +25,9 @@ export default function Hero({ c }: { c: SiteContent }) {
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-[1.2fr_auto] md:gap-16">
           <div>
-            <div className="animate-rise" style={{ animationDelay: "0ms" }}>
-              <span className="chip gap-2 px-4 py-2 text-sm font-semibold text-grey-700 backdrop-blur-lg">
-                <span className="h-2 w-2 rounded-full bg-mint" />
-                {hero.status}
-              </span>
-            </div>
-
             <h1
-              className="animate-rise mt-8 text-[34px] leading-[1.18] font-extrabold tracking-[-0.03em] text-grey-900 md:text-[54px] md:leading-[1.12] md:tracking-[-0.035em]"
-              style={{ animationDelay: "80ms" }}
+              className="animate-rise text-[34px] leading-[1.18] font-extrabold tracking-[-0.03em] text-grey-900 md:text-[54px] md:leading-[1.12] md:tracking-[-0.035em]"
+              style={{ animationDelay: "0ms" }}
             >
               <Lines text={hero.headlineBefore} />
               <span className="text-toss-blue">
@@ -45,14 +38,14 @@ export default function Hero({ c }: { c: SiteContent }) {
 
             <p
               className="animate-rise mt-6 max-w-xl text-[17px] leading-relaxed text-pretty text-grey-600 md:text-lg"
-              style={{ animationDelay: "160ms" }}
+              style={{ animationDelay: "100ms" }}
             >
               {hero.sub}
             </p>
 
             <div
               className="animate-rise mt-9 flex flex-wrap items-center gap-3"
-              style={{ animationDelay: "240ms" }}
+              style={{ animationDelay: "200ms" }}
             >
               <a
                 href="#contact"
@@ -68,7 +61,7 @@ export default function Hero({ c }: { c: SiteContent }) {
               </a>
             </div>
 
-            <div className="animate-rise mt-7" style={{ animationDelay: "320ms" }}>
+            <div className="animate-rise mt-7" style={{ animationDelay: "280ms" }}>
               <SocialLinks variant="light" />
             </div>
           </div>
@@ -93,9 +86,6 @@ export default function Hero({ c }: { c: SiteContent }) {
               />
             </div>
 
-            <span className="animate-float chip absolute -top-3 -right-4 gap-1.5 px-3.5 py-2 text-sm font-semibold text-grey-800 shadow-card">
-              🇰🇷 🇺🇸 🇨🇳
-            </span>
             <span
               className="animate-float chip absolute -bottom-3 -left-5 gap-1.5 px-3.5 py-2 text-sm font-semibold text-grey-800 shadow-card"
               style={{ animationDelay: "-2.7s" }}
@@ -106,8 +96,8 @@ export default function Hero({ c }: { c: SiteContent }) {
         </div>
 
         <dl
-          className="card animate-rise mt-16 grid grid-cols-2 gap-x-4 gap-y-8 px-7 py-8 md:mt-20 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-grey-200/50 md:px-9"
-          style={{ animationDelay: "400ms" }}
+          className="card animate-rise mt-16 grid grid-cols-3 gap-x-4 px-7 py-8 md:mt-20 md:divide-x md:divide-grey-200/50 md:px-9"
+          style={{ animationDelay: "360ms" }}
         >
           {hero.stats.map(({ value, label }) => (
             <div key={label} className="md:px-8 md:first:pl-0 md:last:pr-0">

@@ -17,7 +17,6 @@ export const ko: SiteContent = {
     contact: "연락하기",
   },
   hero: {
-    status: "새로운 기회를 찾고 있어요",
     headlineBefore: "고객의 문제를\n",
     headlineAccent: "확장 가능한 솔루션",
     headlineAfter: "으로.",
@@ -27,7 +26,6 @@ export const ko: SiteContent = {
     stats: [
       { value: "3", label: "개 국어 원어민" },
       { value: "2년+", label: "백엔드 실무 경험" },
-      { value: "10+", label: "엔터프라이즈 고객" },
       { value: "4.05", label: "학점 / 4.5 (성균관대)" },
     ],
   },

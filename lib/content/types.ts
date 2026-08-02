@@ -8,7 +8,6 @@ export type SiteContent = {
     contact: string;
   };
   hero: {
-    status: string;
     headlineBefore: string;
     headlineAccent: string;
     headlineAfter: string;

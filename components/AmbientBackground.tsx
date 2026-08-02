@@ -4,26 +4,32 @@ import { useEffect, useRef } from "react";
 
 const BLOBS = [
   {
-    position: "absolute -top-[12%] left-[6%] h-[680px] w-[680px]",
-    gradient: "bg-[radial-gradient(closest-side,rgba(49,130,246,0.3),transparent)]",
+    position: "absolute -top-[8%] left-[4%] h-[520px] w-[520px]",
+    gradient: "bg-[radial-gradient(closest-side,rgba(49,130,246,0.28),transparent)]",
     speed: -0.06,
     delay: "0s",
   },
   {
-    position: "absolute top-[24%] -right-[14%] h-[620px] w-[620px]",
-    gradient: "bg-[radial-gradient(closest-side,rgba(99,102,241,0.24),transparent)]",
+    position: "absolute top-[18%] -right-[8%] h-[480px] w-[480px]",
+    gradient: "bg-[radial-gradient(closest-side,rgba(139,92,246,0.22),transparent)]",
     speed: 0.05,
     delay: "-8s",
   },
   {
-    position: "absolute top-[54%] -left-[12%] h-[580px] w-[580px]",
-    gradient: "bg-[radial-gradient(closest-side,rgba(45,212,191,0.22),transparent)]",
+    position: "absolute top-[52%] -left-[8%] h-[460px] w-[460px]",
+    gradient: "bg-[radial-gradient(closest-side,rgba(16,185,129,0.18),transparent)]",
     speed: -0.04,
     delay: "-15s",
   },
   {
-    position: "absolute -bottom-[18%] right-[4%] h-[640px] w-[640px]",
-    gradient: "bg-[radial-gradient(closest-side,rgba(49,130,246,0.26),transparent)]",
+    position: "absolute top-[38%] right-[16%] h-[380px] w-[380px]",
+    gradient: "bg-[radial-gradient(closest-side,rgba(244,114,182,0.16),transparent)]",
+    speed: 0.06,
+    delay: "-11s",
+  },
+  {
+    position: "absolute -bottom-[12%] right-[2%] h-[500px] w-[500px]",
+    gradient: "bg-[radial-gradient(closest-side,rgba(49,130,246,0.24),transparent)]",
     speed: 0.07,
     delay: "-4s",
   },
